@@ -44,7 +44,6 @@ class editpageform(forms.Form):
 
 def edit(request,name):
     form=editpageform(initial={'edit_content':util.get_entry(name)})
-    print(util.get_entry(name))
     if request.method=="POST":
         data=editpageform(request.POST)
         if data.is_valid():
