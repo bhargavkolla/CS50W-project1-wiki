@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{name}}</title>
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <ul class="navbar" style="text-align: right; font-size: 10px">
+            <li style="display: inline-block;padding: 5px;">
+                <a href=edit/{{name}}>Edit</a>
+            </li>
+            <li style="display: inline-block;padding: 5px;">
+                <a href="{% url 'index' %}">back to home</a>
+            </li>
+        </ul>
+        {% if not content %}
+            Error 404,page not found
+        {% else %}
+            {{ content|safe }}
+        {% endif %}
+    </body>
+</html>

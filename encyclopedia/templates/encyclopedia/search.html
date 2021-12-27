@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search results</title>
+        <meta charset="UTF-8">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <h3>Search results for {{Search}}</h3>
+        {% for entry in entrylist%}
+            <li><a href=wiki/{{entry}}>{{entry}}</a></li>
+        {% empty %}
+            No results matched
+        {% endfor %}
+    </body>
+</html>
